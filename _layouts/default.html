@@ -3,14 +3,6 @@
         {%- include head.html -%}
     <body>
     <main class="page-content" aria-label="Content">
-        <div style="margin-bottom: 0.1rem;">
-            <div style="display: inline-block; float:left">
-                <a href="{{ site.url }}">{{ site.theme_config.back_home_text }}</a>
-            </div>
-            <div style="display: inline-block; float:right">
-                <a href="{{ site.url }}">{{ site.theme_config.back_home_text }}</a>
-            </div>
-        </div>        
         <div class="wrapper">
             {{ content }}
         </div>
@@ -19,10 +11,5 @@
     {% if site.goat_counter and jekyll.environment == "production" %}
         {% include goat_counter.html %}
     {% endif %}
-    <div style="margin-top: 0.1rem;">
-        <div style="display: inline-block; float:right">
-            <a href="#page_title">▲</a>
-        </div>
-    </div>
     </body>
 </html>
