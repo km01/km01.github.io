@@ -25,13 +25,13 @@ li { margin: 0.4rem 0; }
   line-height: 1.2;
 }
 
-hr {
-  text-align: center;
-  border: 0;
+// hr {
+//   text-align: center;
+//   border: 0;
 
-  &:before { content: '/////' }
-  &:after { content: attr(data-content) '/////' }
-}
+//   &:before { content: '/////' }
+//   &:after { content: attr(data-content) '/////' }
+// }
 
 table, th, td {
   width: 100%;
