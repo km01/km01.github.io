@@ -41,14 +41,14 @@
     </script>
 
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
       $( document ).ready( function() {
-        $( 'button' ).click( function() {
-          $( '#page_up' ).scrollTop( 50 );
+        $( '#page_up' ).click( function() {
+          $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+          return false;
         } );
       } );
     </script>
-
 </head>
 <!-- in my case, $$ is automatically converted to \[ or \(. so i append ['\\[', '\\]'], ['\\(', '\\)'] -->
