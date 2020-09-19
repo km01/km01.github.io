@@ -15,7 +15,7 @@ p { margin: 1rem 0; }
 
 li { margin: 0.4rem 0; }
 
-*:target { background-color: white; }
+*:target { background-color: #1f77b4; }
 
 .wrapper {
   max-width: 80ch;
@@ -52,7 +52,6 @@ div.highlighter-rouge code {
 }
 
 blockquote {
-  font-style: italic;
   border: thin solid black;
   padding: 1rem;
 
