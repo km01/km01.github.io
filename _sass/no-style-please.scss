@@ -15,10 +15,10 @@ p { margin: 1rem 0; }
 
 li { margin: 0.4rem 0; }
 
-*:target { background-color: yellow; }
+// *:target { background-color: yellow; }
 
 .wrapper {
-  max-width: 80ch;
+  max-width: 0ch;
   margin: 4rem auto;
   padding: 0 0.1rem;
   font-size: 1.0rem;
