@@ -7,15 +7,15 @@ title: "hidden markov model 정리"
 
 
 ### Table of contents
-- [normalization](##normalization)
-- [viterbi](##viterbi)
-- [baum-welch](##baum-welch)
+- [normalization](#normalization)
+- [viterbi](#viterbi)
+- [baum-welch](#baum-welch)
 
-## normalization
+## [normalization](#normalization) 
 
-## viterbi
+## [viterbi](#viterbi)
 
-## baum-welch 
+## [baum-welch](#baum-welch)
 
 
 $$
