@@ -1,74 +1,44 @@
----
-layout: compress
-# Default layout
----
-
 <!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+<meta charset="{{ site.encoding }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="{{ page.author | default: site.author | escape }}">
+<meta name="generator" content="Jekyll v{{ jekyll.version }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{% if site.show_frame %}
+<link rel="stylesheet" href="{{ "/assets/css/frame.css" | relative_url }}">
+{% else %}
+<link rel="stylesheet" href="{{ "/assets/css/index.css" | relative_url }}">
+{% endif %}
+{% if site.plugins contains "jekyll-feed" %}<link rel="alternate" href="{{ site.feed.path | default: "/feed.xml" | relative_url }}" type="application/atom+xml" title="{{ site.title }}">{% endif %}
+{% if page.mathjax or site.mathjax %}
+<link rel="stylesheet" href="{{ "/assets/katex/katex.min.css" | relative_url }}">
+<script defer src="{{ "/assets/katex/katex.min.js" | relative_url }}"></script>
+<script defer src="{{ "/assets/katex/contrib/auto-render.min.js" | relative_url }}" onload="renderMathInElement(document.body)"></script>
+{% endif %}
+{% if site.comments.disqus_shortname and page.layout == "post" %}<script src="//{{ site.comments.disqus_shortname }}.disqus.com/embed.js" async></script>{% endif %}
+{% if site.comments.isso_domain and page.layout == "post" %}<script data-isso="http://{{ site.comments.isso_domain }}" src="//{{ site.comments.isso_domain }}/js/embed.min.js"></script>{% endif %}
+{% if site.show_sidebar or site.sidebar %}{% include sidebar.html %}{% endif %}
 
-{% include lang.html %}
+{% if site.navigation %}
+  {% assign pages = site.navigation %}
+{% else %}
+  {% assign pages = site.pages | where_exp: "item", "item.title and item.sitemap != false" | sort: "order" %}
+{% endif %}
 
-{% include assets-origin.html %}
+<header>
+  <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
+  {% include menu.html menu=pages %}
+</header>
 
-{% capture prefer_mode %}
-  {% if site.theme_mode %}
-    data-mode="{{ site.theme_mode }}"
-  {% endif %}
-{% endcapture %}
+{{ content }}
 
-<html lang="{{ site.lang }}"{{ prefer_mode }}>
-
-  {% include head.html %}
-
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
-
-    {% include sidebar.html %}
-
-    {% include topbar.html %}
-
-    <div id="main-wrapper" class="d-flex justify-content-center">
-      <div id="main" class="container pl-xl-4 pr-xl-4">
-
-        {{ content }}
-
-        {% include footer.html %}
-
-      </div>
-
-      {% include search-results.html %}
-
-    </div> <!-- #main-wrapper -->
-
-    {% if page.mermaid %}
-      {% include mermaid.html %}
-    {% endif %}
-
-    <div id="mask"></div>
-
-    <a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button">
-      <i class="fas fa-angle-up"></i>
-    </a>
-
-    {% if site.pwa.enabled %}
-      <div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
-        data-animation="true" data-autohide="false">
-        <div class="toast-header">
-          <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="toast-body text-center pt-0">
-          <p class="pl-2 pr-2 mb-3">{{ site.data.locales[lang].notification.update_found }}</p>
-          <button type="button" class="btn btn-primary" aria-label="Update">
-            {{ site.data.locales[lang].notification.update }}
-          </button>
-        </div>
-      </div>
-    {% endif %}
-
-    {% include search-loader.html %}
-
-    {% include js-selector.html %}
-
-  </body>
+{% if site.external %}
+<footer>
+  <div>{{ site.description | default: site.title }}</div>
+  {% include menu.html menu=site.external %}
+</footer>
+{% endif %}
 
 </html>
