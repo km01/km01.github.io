@@ -30,6 +30,10 @@
 <header>
   <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
   {% include menu.html menu=pages %}
+
+  {% if page.use_math %}
+    {% include mathjax_support.html %}
+  {% endif %}
 </header>
 
 {{ content }}

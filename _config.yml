@@ -1,15 +1,20 @@
-title: "Blog Title"
-author: "Blog Author"
-description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
+title: "My blog"
+author: "jeong"
+description: "just my blog"
 permalink: /:title/
 lang: "en"
-excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
+# markdown: kramdown
+# highlighter: rouge
+# lsi: false
+excerpt_separator: "\n\n\n"
+# incremental: false
+mathjax: true
 
 # Layout
 
 show_excerpts: true        # show article excerpts on the home page
-show_frame: true           # adds a gray frame to the site
+show_frame: false           # adds a gray frame to the site
 show_sidebar: false        # show a sidebar instead of the usual header
 minimal: false             # use a dark header
 
