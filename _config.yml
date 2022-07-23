@@ -4,12 +4,17 @@ description: "just my blog"
 permalink: /:title/
 lang: "en"
 date_format: "%B %d, %Y"
-# markdown: kramdown
-# highlighter: rouge
-# lsi: false
+
+
+markdown: kramdown
+
+krandown:
+  input: GFM
+  highlighter: rouge
+
 excerpt_separator: "\n\n\n"
 # incremental: false
-mathjax: true
+# mathjax: true
 
 # Layout
 
